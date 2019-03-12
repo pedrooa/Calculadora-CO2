@@ -227,7 +227,20 @@ $(document).ready(function() {
 			
 
 			// calculate total score and round to nearest whole integer
-			totalScore = Math.round(energyScore + travelScore + wasteScore);
+			totalScore = Math.round( ventiScore + chuvScore +luzScore +tvScore + FogScore +	gelaScore +	microScore +
+				liqScore +
+				maqlarScore +
+				maqlalScore +
+				liqScore +
+				ferrScore +
+				secaScore +
+				noteScore +
+				carGasScore+
+				carEtaScore+
+				carDieScore+
+				motoGasScore+
+				motoEtaScore +
+				onibubsInput );
 			var formattedScore = totalScore.toLocaleString("en");
 			// console.log(totalScore);
 
