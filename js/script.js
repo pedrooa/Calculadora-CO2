@@ -11,6 +11,30 @@ $(document).ready(function() {
 			return false;
 		}
 	});
+	/// fator conersao
+	var fatorconv= 0.11  //kg co2/ Kwh
+	// pot medias em watts
+	var potmarcondi = 2000;
+	var potmventi = 65;
+	var potmChuv = 5300;
+	var potmLuzf = 15 ;
+	var potmLuzi = 40; 
+	var potmTv = 110;
+	var potmFog = 9120;
+	var potmGela = 250;
+	var potmMicro = 1500;
+	var potmMaqlavarr = 500;
+	var potmMaqlavarl = 1500;
+	var potmLiq= 300;
+	var potmFerr= 1000;
+	var potmSeca= 1400;
+	var potmCel = 0;
+	var potmNote = 0;
+
+
+
+	
+
 
 	$("#calculate-btn").on("click", function() {
 		var calculateAndDisplayScore = function() {
@@ -19,85 +43,188 @@ $(document).ready(function() {
 			$("#form").hide();
 
 			// get input values
-			var electricInput = document.getElementById("electric").value;
-			var gasInput = document.getElementById("gas").value;
-			var oilInput = document.getElementById("oil").value;
-			var carInput = document.getElementById("car").value;
-			var flights4LessInput = document.getElementById("flights-4-less").value;
-			var flights4MoreInput = document.getElementById("flights-4-more").value;
+			var arcondiInput = document.getElementById("arcond").value;
+			var ventiInput = document.getElementById("venti").value;
+			var chuvInput = document.getElementById("chuv").value;
+			var luziInput = document.getElementById("luzi").value;
+			var luzfInput = document.getElementById("luzf").value;
+			var tvInput = document.getElementById("tv").value;
+			var fogInput = document.getElementById("fog").value;
+			var gelaInput = document.getElementById("gela").value;
+			var microInput = document.getElementById("micro").value;
+			var maqlavarrInput = document.getElementById("maqlavarr").value;
+			var maqlavarlInput = document.getElementById("maqlavarl").value;
+			var maqlavarlInput = document.getElementById("maqlavarl").value;
+			var liqInput = document.getElementById("liq").value;
+			var ferrInput = document.getElementById("ferr").value;
+			var secaInput = document.getElementById("seca").value;
+			var celInput = document.getElementById("cel").value;
+			var noteInput = document.getElementById("note").value;
+			var carGasInput = document.getElementById("carGas").value;
+			var carEtaInput = document.getElementById("carEta").value;
+			var carDieInput = document.getElementById("carDie").value;
+			var motoGasInput = document.getElementById("motoGas").value;
+			var motoEtaInput = document.getElementById("motoEta").value;
+			var onibusInput = document.getElementById("onibus").value;
+
 			
 			// set variables for calculating each component score
-			var electricScore = "";
-			var gasScore = "";
-			var oilScore = "";
-			var carScore = "";
-			var flights4LessScore = "";
-			var flights4MoreScore = "";
-			var newspaperScore = "";
-			var alumTinScore = "";
+			var arcondiScore = "";
+			var ventiScore = "";
+			var chuvScore = "";
+			var luzScore = "";
+			var tvScore = "";
+			var FogScore = "";
+			var gelaScore = "";
+			var microScore = "";
+			var liqScore = "";
+			var maqlavarrScore = "";
+			var maqlavarlScore = "";
+			var liqScore = "";
+			var ferrScore ="";
+			var secaScore = "";
+			var noteScore = "";
+			var carGasScore= "";
+			var carEtaScore= "";
+			var carDieScore="";
+			var motoGasScore="";
+			var motoEtaScore = "";
+			var onibubsInput = "";
 
 			var totalScore = "";
 
-			if (document.getElementById("optionsRadio1").checked) {
-				newspaperScore = 0;
-			} else {
-				newspaperScore = 184;
-			}
-			// console.log("Newspaper score is: " + newspaperScore);
+	
+			// chuveiro
 
-			if (document.getElementById("optionsRadio3").checked) {
-				alumTinScore = 0;
+			if (chuvInput === 0 || chuvInput === "undefined") {
+				chuvScore = 0;
 			} else {
-				alumTinScore = 166;
+				chuvScore = chuvInput * potmChuv *fatorconv *365 ;
 			}
-			// console.log("Aluminum and tin score is: " + alumTinScore);
+			// ar condicionado
 
-			if (electricInput === 0 || electricInput === "undefined") {
-				electricScore = 0;
+			if (arcondiInput === 0 || arcondiInput === "undefined") {
+				arcondiScore = 0;
 			} else {
-				electricScore = electricInput * 105;
+				arcondiScore =  arcondiInput * potmarcondi *fatorconv *365 ;;
 			}
-			// console.log("Electric score is: " + electricScore);
+			// ventilador 
 
-			if (gasInput === 0 || gasInput === "undefined") {
-				gasScore = 0;
+			if (ventiInput === 0 || ventiInput === "undefined") {
+				ventiScore = 0;
 			} else {
-				gasScore = gasInput * 105;
+				ventiScore =  ventiInput * potmventi *fatorconv *365 ;;
 			}
-			// console.log("Gas score is: " + gasScore);
+			// Lampadas 
+			if (luziInput === 0 || luziInput === "undefined") {
+				luziScore = 0;
+			} else {
+				luziScore = potmLuzi * luziInput *fatorconv *365;
+			}
 
-			if (oilInput === 0 || oilInput === "undefined") {
-				oilScore = 0;
+			if (luzfInput === 0 || luzfInput === "undefined") {
+				luzfScore = 0;
 			} else {
-				oilScore = oilInput * 113;
+				luzfScore = potmLuzf * luzfInput *fatorconv *365;
 			}
-			// console.log("Oil score is: " + oilScore);
+			// tv
+			if (tvInput === 0 || tvInput === "undefined") {
+				tvScore = 0;
+			} else {
+				tvScore = tvInput  * potmTv * fatorconv *365;
+			}
+			// fogao
+			if (fogInput === 0 || fogInput === "undefined") {
+				fogScore = 0;
+			} else {
+				fogScore =  potmFog * fogInput *fatorconv *365;
+			}
+			// geladeira
+			if (gelaInput === 0 || gelaInput === "undefined") {
+				gelaScore = 0;
+			} else {
+				gelaScore =  potmGela* gelaInput *fatorconv *365;
+			}
+			// microondas
+			if (microInput === 0 || microInput === "undefined") {
+				microScore = 0;
+			} else {
+				microScore =  potmMicro* microInput *fatorconv *365;
+			}
+			// maquina de lavar roupas
+			if (maqlavarrInput === 0 || maqlavarrInput === "undefined") {
+				maqlavarrScore = 0;
+			} else {
+				maqlavarrScore =  potmMaqlavarr* maqlavarrInput *fatorconv *365;
+			}
+			// maquina de lavar loucas
+			if (maqlavarlInput === 0 || maqlavarlInput === "undefined") {
+				maqlavarlScore = 0;
+			} else {
+				maqlavarlScore =  potmMaqlavarl* maqlavarlInput *fatorconv *365;
+			}
+			//liquidificador
+			if (liqInput === 0 || liqInput === "undefined") {
+				liqScore = 0;
+			} else {
+				liqScore =  potmLiq *liqInput * fatorconv *365;
+			}
+			//Ferro
+			if (ferrInput === 0 || ferrInput === "undefined") {
+				ferrScore = 0;
+			} else {
+				ferrScore =  potmFerr *ferrInput * fatorconv *365;
+			}
+			//secador 
+			if (secaInput === 0 || secaInput === "undefined") {
+				secaScore = 0;
+			} else {
+				secaScore =  potmSeca *secaInput * fatorconv *365;
+			}
+			//celular 
+			if (celInput === 0 || celInput === "undefined") {
+				celScore = 0;
+			} else {
+				celScore =  potmCel *celInput * fatorconv *365;
+			}
+			//notebook
+			if (noteInput === 0 || noteInput === "undefined") {
+				noteScore = 0;
+			} else {
+				noteScore =  potmNote *noteInput * fatorconv *365;
+			}
 
-			if (carInput === 0 || carInput === "undefined") {
-				carScore = 0;
+			//Locomocao
+
+			//carro etanol
+			if (carEtaInput === 0 || carEtaInput === "undefined") {
+				carEtaScore = 0;
 			} else {
-				carScore = carInput * 0.79;
+				carEtaScore =  carEtaInput * 1507.44/8.9 ;
 			}
-			// console.log("Car score is: " + carScore);
+			//carro Diesel
+			if (carDieInput === 0 || carDieInput === "undefined") {
+				carDieScore = 0;
+			} else {
+				carDieScore =  carDieInput * 2393.6/15.2;
+			}
+
+			//moto etanol
+			if (motoEtaInput === 0 || motoEtaInput === "undefined") {
+				motoEtaScore = 0;
+			} else {
+				motoEtaScore =  motoEtaInput * 1507.44/24.7 ;
+			}
+			//Onibus
+			if (OnibusInput === 0 || OnibusInput === "undefined") {
+				OibusScore = 0;
+			} else {
+				OnibusScore =  onibusInput * 2393.6/2.5 ;
+			}
+
 		
-			if (flights4LessInput === 0 || flights4LessInput === "undefined") {
-				flights4LessScore = 0;
-			} else {
-				flights4LessScore = flights4LessInput * 1100;
-			}
-			// console.log("Flights taken 4 hours or less score is: " + flights4LessScore);
 
-			if (flights4MoreInput === 0 || flights4MoreInput === "undefined") {
-				flights4MoreScore = 0;
-			} else {
-				flights4MoreScore = flights4MoreInput * 4400;
-			}
-			// console.log("Flights taken 4 hours or more score is: " + flights4MoreScore);
-
-			// calculate scores for each category
-			var energyScore = electricScore + gasScore + oilScore;
-			var travelScore = carScore	+ flights4LessScore + flights4MoreScore;
-			var wasteScore = newspaperScore + alumTinScore;
+			
 
 			// calculate total score and round to nearest whole integer
 			totalScore = Math.round(energyScore + travelScore + wasteScore);
@@ -116,26 +243,6 @@ $(document).ready(function() {
 			});
 		}
 
-		// check selection made for recycling newspaper before calculating and displaying score
-		var recycleNewspaperSelectionYes = document.getElementById("optionsRadio1").checked;
-		var recycleNewspaperSelectionNo = document.getElementById("optionsRadio2").checked;
-		var recycleAlumTinSelectionYes = document.getElementById("optionsRadio3").checked;
-		var recycleAlumTinSelectionNo = document.getElementById("optionsRadio4").checked;
 
-		if (recycleNewspaperSelectionYes == false && recycleNewspaperSelectionNo == false || recycleAlumTinSelectionYes == false && recycleAlumTinSelectionNo == false) {
-			if (recycleNewspaperSelectionYes == false && recycleNewspaperSelectionNo == false) {
-				$("#newspaper-alert").show();
-			} else {
-				$("#newspaper-alert").hide();
-			}
-
-			if (recycleAlumTinSelectionYes == false && recycleAlumTinSelectionNo == false) {
-				$("#alum-tin-alert").show();
-			} else {
-				$("#alum-tin-alert").hide();
-			}
-		} else {
-			calculateAndDisplayScore();
-		}
 	});	
 });
