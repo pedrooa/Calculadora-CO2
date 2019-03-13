@@ -208,12 +208,24 @@ $(document).ready(function() {
 			} else {
 				carDieScore =  carDieInput * 2393.6/15.2;
 			}
+			//carro Gasolina
+			if (carGasInput === 0 || carGasInput === "undefined") {
+				carGasScore = 0;
+			} else {
+				carGasScore =  carGasInput * 1987.04/12.9;
+			}
 
 			//moto etanol
 			if (motoEtaInput === 0 || motoEtaInput === "undefined") {
 				motoEtaScore = 0;
 			} else {
 				motoEtaScore =  motoEtaInput * 1507.44/24.7 ;
+			}
+			//moto Gasolina
+			if (motoGasInput === 0 || motoGasInput === "undefined") {
+				motoGasScore = 0;
+			} else {
+				motoGasScore =  motoGasInput * 1987.04/30 ;
 			}
 			//Onibus
 			if (OnibusInput === 0 || OnibusInput === "undefined") {
@@ -227,7 +239,7 @@ $(document).ready(function() {
 			
 
 			// calculate total score and round to nearest whole integer
-			totalScore = Math.round( ventiScore + chuvScore +luzScore +tvScore + FogScore +	gelaScore +	microScore +
+			var totalScore = Math.round( ventiScore + chuvScore +luzScore +tvScore + FogScore +	gelaScore +	microScore +
 				liqScore +
 				maqlarScore +
 				maqlalScore +
@@ -241,7 +253,7 @@ $(document).ready(function() {
 				motoGasScore+
 				motoEtaScore +
 				onibubsInput );
-			var formattedScore = totalScore.toLocaleString("en");
+			formattedScore = totalScore.toLocaleString("en");
 			// console.log(totalScore);
 
 			document.getElementById("score").innerHTML = formattedScore;
