@@ -67,8 +67,8 @@ $(document).ready(function() {
 			var potmLiq= 300;
 			var potmFerr= 1000;
 			var potmSeca= 1400;
-			var potmCel = 0;
-			var potmNote = 0;
+			var potmCel = 5;
+			var potmNote = 61;
 
 			
 			// set variables for calculating each component score
@@ -102,7 +102,7 @@ $(document).ready(function() {
 			if (chuvInput === 0 || chuvInput === "undefined") {
 				chuvScore = 0;
 			} else {
-				chuvScore = chuvInput * potmChuv *fatorconv *365 ;
+				chuvScore = (chuvInput/60) * potmChuv *fatorconv *365 ;
 			}
 			// ar condicionado
 
@@ -188,13 +188,13 @@ $(document).ready(function() {
 			if (celInput === 0 || celInput === "undefined") {
 				celScore = 0;
 			} else {
-				celScore =  potmCel *celInput * fatorconv *365;
+				celScore =  potmCel *celInput*2 * fatorconv *365;
 			}
 			//notebook
 			if (noteInput === 0 || noteInput === "undefined") {
 				noteScore = 0;
 			} else {
-				noteScore =  potmNote *noteInput * fatorconv *365;
+				noteScore =  potmNote *noteInput * 2*fatorconv *365;
 			}
 
 			//Locomocao
@@ -244,8 +244,8 @@ $(document).ready(function() {
 			// calculate total score and round to nearest whole integer
 			var totalScore = Math.round( ventiScore + chuvScore +luzScore +tvScore + FogScore +	gelaScore +	microScore +
 				liqScore +
-				maqlarScore +
-				maqlalScore +
+				maqlavarrScore +
+				maqlavarlScore +
 				liqScore +
 				ferrScore +
 				secaScore +
@@ -255,7 +255,8 @@ $(document).ready(function() {
 				carDieScore+
 				motoGasScore+
 				motoEtaScore +
-				onibubsInput );
+				onibusScore );
+				totalScore = totalScore/1000;
 			formattedScore = totalScore.toLocaleString("en");
 			 console.log(totalScore);
 
