@@ -11,25 +11,7 @@ $(document).ready(function() {
 			return false;
 		}
 	});
-	/// fator conersao
-	var fatorconv= 0.11  //kg co2/ Kwh
-	// pot medias em watts
-	var potmarcondi = 2000;
-	var potmventi = 65;
-	var potmChuv = 5300;
-	var potmLuzf = 15 ;
-	var potmLuzi = 40; 
-	var potmTv = 110;
-	var potmFog = 9120;
-	var potmGela = 250;
-	var potmMicro = 1500;
-	var potmMaqlavarr = 500;
-	var potmMaqlavarl = 1500;
-	var potmLiq= 300;
-	var potmFerr= 1000;
-	var potmSeca= 1400;
-	var potmCel = 0;
-	var potmNote = 0;
+
 
 
 
@@ -66,6 +48,27 @@ $(document).ready(function() {
 			var motoGasInput = document.getElementById("motoGas").value;
 			var motoEtaInput = document.getElementById("motoEta").value;
 			var onibusInput = document.getElementById("onibus").value;
+
+
+				/// fator conversao
+			var fatorconv= 0.11  //kg co2/ Kwh
+			// pot medias em watts
+			var potmarcondi = 2000;
+			var potmventi = 65;
+			var potmChuv = 5300;
+			var potmLuzf = 15 ;
+			var potmLuzi = 40; 
+			var potmTv = 110;
+			var potmFog = 9120;
+			var potmGela = 250;
+			var potmMicro = 1500;
+			var potmMaqlavarr = 500;
+			var potmMaqlavarl = 1500;
+			var potmLiq= 300;
+			var potmFerr= 1000;
+			var potmSeca= 1400;
+			var potmCel = 0;
+			var potmNote = 0;
 
 			
 			// set variables for calculating each component score
@@ -228,10 +231,10 @@ $(document).ready(function() {
 				motoGasScore =  motoGasInput * 1987.04/30 ;
 			}
 			//Onibus
-			if (OnibusInput === 0 || OnibusInput === "undefined") {
-				OibusScore = 0;
+			if (onibusInput === 0 || onibusInput === "undefined") {
+				onibusScore = 0;
 			} else {
-				OnibusScore =  onibusInput * 2393.6/2.5 ;
+				onibusScore =  onibusInput * 2393.6/2.5 ;
 			}
 
 		
@@ -254,7 +257,7 @@ $(document).ready(function() {
 				motoEtaScore +
 				onibubsInput );
 			formattedScore = totalScore.toLocaleString("en");
-			// console.log(totalScore);
+			 console.log(totalScore);
 
 			document.getElementById("score").innerHTML = formattedScore;
 
@@ -268,6 +271,6 @@ $(document).ready(function() {
 			});
 		}
 
-
+		calculateAndDisplayScore();
 	});	
 });
